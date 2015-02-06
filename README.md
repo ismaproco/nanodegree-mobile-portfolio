@@ -71,3 +71,10 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
 * <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+
+
+
+#Development
+
+- The first thing I did was to execute the PageSpeed test of google to identify the initial issues of the page.
+- based on the results I started optimizing the image file size of pizzeria.jpg, passing from 2.3 MB to 363 KB.
