@@ -78,3 +78,4 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 
 - The first thing I did was to execute the PageSpeed test of google to identify the initial issues of the page.
 - based on the results I started optimizing the image file size of pizzeria.jpg, passing from 2.3 MB to 363 KB.
+- After that I start to optimize the blocking css and javascript files.
