@@ -76,6 +76,16 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 
 #Development
 
+* Optimizing the index.html
+
 - The first thing I did was to execute the PageSpeed test of google to identify the initial issues of the page.
-- based on the results I started optimizing the image file size of pizzeria.jpg, passing from 2.3 MB to 363 KB.
-- After that I start to optimize the blocking css and javascript files.
+- based on the results I started optimizing the image file size of pizzeria.jpg, I create another image wich I called pizzeria mini, with a width size of 100px, because was being set like that by default in the image style. I use a google recommended application for image optimization: http://jpegclub.org/
+- Repeat the same process with the profile pic.
+
+- Then I start to optimize the blocking css and javascript files.
+- First I move the analytics code to the end of the perfmatters.js so there will only be one file with js code.
+- Second I added the media=print to the print specific styles.
+- Third, Added the async option to the js asset load, in this way I will not block the CPR.
+- Lastly I found that I will get the best results if I move the styles and js files at the bottom of the page so the html parse will not be affected.
+
+* Optimizing pizza.html
