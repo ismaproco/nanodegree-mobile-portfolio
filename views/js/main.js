@@ -511,19 +511,15 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   var scrollVal = (document.body.scrollTop / 1250);
-  
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin( scrollVal + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+  var currentItem;
 
-  // User Timing API to the rescue again. Seriously, it's worth learning.
-  // Super easy to create custom metrics.
-  window.performance.mark("mark_end_frame");
-  window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  if (frame % 10 === 0) {
-    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
-    logAverageFrame(timesToUpdatePosition);
+  for (var i = 0; i < 50; i++) {
+    // add the pizza to an specific item so it will be requested one time.
+    currentItem = items[i];
+    // using the calculated scroll value only once.
+    var phase = Math.sin( scrollVal + (i % 5));
+    // Move the item to the calculated location
+    currentItem.style.left = currentItem.basicLeft + 100 * phase + 'px';
   }
 }
 
