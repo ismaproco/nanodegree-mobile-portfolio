@@ -1,3 +1,8 @@
+This was my experience optimizing the nanodegree mobile portfolio
+
+#Online Demo:
+http://chitomsa.com/mobile-portfolio
+
 #Development
 
 * Optimizing the index.html
@@ -23,3 +28,18 @@
 - I found the ScrollTop was request in each loop iteration and that was taking a lot of painting time, so I extract that value from the function and do the calc outside the loop. There was a huge performance improvement just with that, then I started looking at the Math.sin used for the phase calculation to be repeated to each 5ht element so I extracted that calculation of the method and put it an array, but this didn't represent any performance improvement.
 - I'm looking for ways to improve the painting time of the app, I asked in the forums and they suggest to use css transforms, try to implement them, but the performance actually decrease, probably by my implementation.
 - I found the removal of the logAverageFrame in the updatePositions Method befeneficial for the average FPS in the pizza.html page.
+
+#Optimizing tools
+
+- Google Chrome PageSpeed Insights Chrome extension
+https://developers.google.com/speed/pagespeed/insights_extensions
+
+- CSS minifier
+http://www.phpied.com/cssmin-js/
+
+- Web Page performace optimization
+http://gtmetrix.com/
+
+- JPG image optimizer
+https://kraken.io/
+
