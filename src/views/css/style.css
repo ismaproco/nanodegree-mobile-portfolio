@@ -33,6 +33,8 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  height: 100px;
+  width: 73.333px;
 }
 
 .randomPizzaContainer {
@@ -48,4 +50,12 @@ form {
 
  .container {
   background-color: rgba(240, 60, 60, 0.8);
+}
+
+#movingPizzas1 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transform: translateZ(0);
 }

@@ -1,7 +1,7 @@
 This was my experience optimizing the nanodegree mobile portfolio
 
 #Online Demo:
-http://chitomsa.com/mobile-portfolio
+http://ismapro.co/mobileportfolio/
 
 #Development
 
@@ -25,9 +25,16 @@ http://chitomsa.com/mobile-portfolio
 - Working in the method: changePizzaSizes.
 - While testing I found the multiple querySelectors inside the for loop were taking a lot of time to recalculate the same dx and width, for all the images even if all the images will have the same size, then I improve the algorithm calculating the values just once before the loop and then assign those values to each one of the pizzas. I reach a time of ~2-4ms.
 - Working in the method: updatePositions
-- I found the ScrollTop was request in each loop iteration and that was taking a lot of painting time, so I extract that value from the function and do the calc outside the loop. There was a huge performance improvement just with that, then I started looking at the Math.sin used for the phase calculation to be repeated to each 5ht element so I extracted that calculation of the method and put it an array, but this didn't represent any performance improvement.
+- I found the ScrollTop was request in each loop iteration and that was taking a lot of painting time, so I extract that value from the function and do the calculation outside the loop. There was a huge performance improvement just with that, then I started looking at the Math.sin used for the phase calculation to be repeated to each 5th element so I extracted that calculation of the method and put it an array, but this didn't represent any performance improvement.
 - I'm looking for ways to improve the painting time of the app, I asked in the forums and they suggest to use css transforms, try to implement them, but the performance actually decrease, probably by my implementation.
-- I found the removal of the logAverageFrame in the updatePositions Method befeneficial for the average FPS in the pizza.html page.
+- I found the removal of the logAverageFrame in the updatePositions Method beneficial for the average FPS in the pizza.html page.
+- After many tests I found one of the main problems to keep the application running at 60 fps is 
+the positioning of the pizzas using the the style.left attribute in js, after some searching and 
+some help in the forum:
+http://discussions.udacity.com/t/how-do-you-get-60-fps-consistently/2423/6
+I try to replace the styling with CSS3 Transformation and the performance improve a lot.
+- I found also that I can move the pizzas elements to a global variable and implement a map to loop through the pizza items.
+
 
 #Optimizing tools
 
@@ -42,4 +49,9 @@ http://gtmetrix.com/
 
 - JPG image optimizer
 https://kraken.io/
+
+- CSS Transforms and Transitions
+http://css3.bradshawenterprises.com/transitions/
+
+
 

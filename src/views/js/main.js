@@ -142,6 +142,9 @@ pizzaIngredients.crusts = [
   "Stuffed Crust"
 ];
 
+//Store the moving pizzas
+var bgPizzas = [];
+
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
@@ -509,36 +512,55 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
-  var scrollVal = (document.body.scrollTop / 1250);
-  var currentItem;
+  // calculate general scroll value
+  var scrollVal = ( window.scrollY / 1250 );
 
-  for (var i = 0; i < 50; i++) {
-    // add the pizza to an specific item so it will be requested one time.
-    currentItem = items[i];
-    // using the calculated scroll value only once.
-    var phase = Math.sin( scrollVal + (i % 5));
-    // Move the item to the calculated location
-    currentItem.style.left = currentItem.basicLeft + 100 * phase + 'px';
-  }
+  // loop throug the pizzas and change the position of each pizza 
+  bgPizzas.map( function( currentItem ) {
+    currentItem.style.transform = "translate(" + 100 * Math.sin( scrollVal + (i % 5) ) + "px, 0)";
+  } ) ;
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll', updatePositions );
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
+  
+  // get the window viewport size
+  var windowSize = getWindowSize();
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  
+  // Calculate the number of max number of columns and rows
+  var rows = windowSize.height / s;
+  var cols = windowSize.width / 100;
+
+  // lop through the background pizzas
+  for (var i = 0; i < ( rows * cols ); i++) {
+
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
+
   }
+
+  // store the background pizzas in a global variable
+  bgPizzas = document.querySelectorAll('.mover');
   updatePositions();
 });
+
+// method that returns the window view port size.
+function getWindowSize( ) {
+  // http://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    windowWidth = w.innerWidth || e.clientWidth || g.clientWidth,
+    windowHeight = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+    return {width: windowWidth , height: windowHeight };
+}
