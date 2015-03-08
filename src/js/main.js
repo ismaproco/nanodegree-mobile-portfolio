@@ -514,10 +514,11 @@ function updatePositions() {
 
   // calculate general scroll value
   var scrollVal = ( window.scrollY / 1250 );
-
+  var i = 0;
   // loop throug the pizzas and change the position of each pizza 
   bgPizzas.map( function( currentItem ) {
     currentItem.style.transform = "translate(" + 100 * Math.sin( scrollVal + (i % 5) ) + "px, 0)";
+    i++;
   } ) ;
 }
 
