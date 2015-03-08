@@ -1,9 +1,30 @@
-This was my experience optimizing the nanodegree mobile portfolio
+#Nanodegree Mobile Portfolio
+
+This is the nanodegree project 4, it is divided in three parts.
+
+* The source folder: src/
+This folder store the webpage scripts with the raw code with comments and heavy scripted files
+
+
+* The build folder:  build/
+This folder have the compressed files of css, html and images for fast page loads.
+
+* The building script: Gruntfile.js
+This script build the files in the src/ folder, and override the build/ folder files.
+
+To execute the grunt file is necessary to have GRUNT installed, please refer to here:
+
+http://gruntjs.com/getting-started
+
+and execute the grunt command line application
+
+"" >grunt
+
 
 #Online Demo:
 http://ismapro.co/mobileportfolio/
 
-#Development
+#This was my experience optimizing the nanodegree mobile portfolio
 
 * Optimizing the index.html
 
