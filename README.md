@@ -18,8 +18,9 @@ http://gruntjs.com/getting-started
 
 and execute the grunt command line application
 
-"" >grunt
-
+```
+>grunt
+```
 
 #Online Demo:
 http://ismapro.co/mobileportfolio/
