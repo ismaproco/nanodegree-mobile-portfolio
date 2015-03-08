@@ -19,7 +19,8 @@ http://gruntjs.com/getting-started
 and execute the grunt command line application
 
 ```
->grunt
+npm install
+grunt
 ```
 
 #Online Demo:
